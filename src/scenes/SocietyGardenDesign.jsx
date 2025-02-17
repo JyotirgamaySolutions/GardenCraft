@@ -16,7 +16,7 @@ export default class SocietyGardenDesign extends Phaser.Scene {
       "Bench", "Fountain", "Garden Lamps", "Compost area", "GreenBush", "RoundedBush", "Palm Tree", "Fern",
       "Plant", "S path", "Circle Table", "Rock garden", "Cypress", "Juniper"
     ];
-    this.specialTrees = new Set(['societytree1','societytree3','societytree4','societytree5','societytree7','societytree8','societytree9','societytree11','societytree12','societytree15','societytree16','societytree17','societytree18','societytree26','societytree28']);
+    this.specialTrees = new Set(['societytree1','societytree3','societytree4','societytree5','societytree7','societytree11','societytree12','societytree15','societytree16','societytree17','societytree18','societytree28']);
     // this.specialTrees = new Set(['societytree18','societytree9','societytree5', 'societytree7', 'societytree19','societytree1','societytree3','societytree28','societytree4','societytree11','societytree12','societytree10','societytree28']);
   } 
 
@@ -787,7 +787,7 @@ specialHandleCheckButtonClick(element) {
   this.checkSound.play();
 
   // Increase size by 30%
-  element.setDisplaySize(element.originalSize.width * 1.6, element.originalSize.height * 1.6);
+  element.setDisplaySize(element.originalSize.width * 2.2, element.originalSize.height * 2.2);
 
   // Create a copy in the original position with the original size
   const copy = this.add.image(element.holderOriginalX, element.holderOriginalY, element.texture.key)

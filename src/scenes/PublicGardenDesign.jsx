@@ -13,10 +13,10 @@ export default class PublicGardenDesign extends Phaser.Scene {
     this.treeNames = [
       "Bird-bath", "Honeycomb", "Gazebo", "See-Saw", "Path2", "Stones", "Cycle", "Stream",
       "Bridge", "Fountain", "Flower Patch", "Slide", "Bush", "Ivy Plant", "Swing", "Bench",
-      "2-Table", "Bush2", "Machan", "Public", "Restroom", "Statue", "Dustbin", "GreenBush",
+      "2-Table", "Bush2", "Kids", "Public", "Restroom", "Statue", "Dustbin", "GreenBush",
       "RoundedBush", "Potted plant", "Public2", "Palm Tree", "Cypress", "Juniper"
     ];
-    this.specialTrees = new Set(['publictree1','publictree3','publictree4','publictree6','publictree8','publictree9','publictree10','publictree12','publictree14','publictree15','publictree16','publictree17','publictree22']);
+    this.specialTrees = new Set(['publictree19','publictree1','publictree3','publictree4','publictree6','publictree8','publictree9','publictree10','publictree12','publictree14','publictree15','publictree16','publictree20','publictree21','publictree17','publictree22']);
     // this.specialTrees = new Set(['publictree1', 'publictree3', 'publictree4', 'publictree7', 'publictree9','publictree10', 'publictree15', 'publictree16','publictree17', 'publictree18', 'publictree20', 'publictree22', 'publictree28']);
   } 
 
@@ -50,7 +50,7 @@ export default class PublicGardenDesign extends Phaser.Scene {
    this.load.image('publictree16', '/assets/PublicAssets/images/16.png');
    this.load.image('publictree17', '/assets/PublicAssets/images/17.png');
    this.load.image('publictree18', '/assets/SocietyAssets/images/pic8.png');
-   this.load.image('publictree19', '/assets/PublicAssets/images/402.png');
+   this.load.image('publictree19', '/assets/PublicAssets/images/501.png');
    this.load.image('publictree20', '/assets/SocietyAssets/images/pic38.png');
    this.load.image('publictree21', '/assets/PublicAssets/images/404.png');
    this.load.image('publictree22', '/assets/PublicAssets/images/409.png');
@@ -788,7 +788,7 @@ specialHandleCheckButtonClick(element) {
   this.checkSound.play();
 
   // Increase size by 30%
-  element.setDisplaySize(element.originalSize.width * 1.6, element.originalSize.height * 1.6);
+  element.setDisplaySize(element.originalSize.width * 2.2, element.originalSize.height * 2.2);
 
   // Create a copy in the original position with the original size
   const copy = this.add.image(element.holderOriginalX, element.holderOriginalY, element.texture.key)

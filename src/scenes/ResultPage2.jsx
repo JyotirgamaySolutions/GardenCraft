@@ -48,7 +48,7 @@ export default class ResultPage2 extends Phaser.Scene {
 
     const resultBgBounds = background.getBounds();
     const originalBounds = data.designData.mainImageBounds;
-    const specialTrees = new Set(['societytree1','societytree3','societytree4','societytree5','societytree7','societytree8','societytree9','societytree11','societytree12','societytree15','societytree16','societytree17','societytree18','societytree26','societytree28']);
+    const specialTrees = new Set(['societytree1','societytree3','societytree4','societytree5','societytree7','societytree11','societytree12','societytree15','societytree16','societytree17','societytree18','societytree28']);
     // const specialTrees = new Set(['societytree18','societytree9','societytree5', 'societytree7', 'societytree19','societytree1','societytree3','societytree28','societytree4','societytree11','societytree12','societytree10','societytree28']);
 
     data.designData.elements.forEach(element => {
@@ -61,7 +61,7 @@ export default class ResultPage2 extends Phaser.Scene {
       
       // Apply 3x scale for special elements
       if (specialTrees.has(element.texture)) {
-        newElement.setDisplaySize(192, 192); // 120*3=360
+        newElement.setDisplaySize(264, 264); // 120*3=360
       } else {
         newElement.setDisplaySize(120, 120);
       }

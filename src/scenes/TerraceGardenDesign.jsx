@@ -142,7 +142,8 @@ export default class TerraceGardenDesign extends Phaser.Scene {
       fill: '#fff',
       fontFamily: 'Arial',
       fontStyle: 'bold',
-    }).setInteractive()
+    }).setOrigin(0, 0.5)
+    .setInteractive()
     .on('pointerdown', () => {
       this.buttonTap.play();
       this.saveFinalDesign();
@@ -563,8 +564,8 @@ createActionButtons(element) {
     this.cleanupButtons(element); // Always clear existing buttons first
     
     // Create buttons regardless of element type or state
-    const buttonOffsetX = 60;
-    const buttonOffsetY = 60;
+    const buttonOffsetX = 100;
+    const buttonOffsetY = 100;
     const buttonSize = 40;
 
     const checkButton = this.add.image(element.x + buttonOffsetX, element.y - buttonOffsetY, 'terracecheckButton')

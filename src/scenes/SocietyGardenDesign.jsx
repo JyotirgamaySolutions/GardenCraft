@@ -554,8 +554,8 @@ createActionButtons(element) {
   this.cleanupButtons(element); // Always clear existing buttons first
   
   // Create buttons regardless of element type or state
-  const buttonOffsetX = 120;
-  const buttonOffsetY = 120;
+  const buttonOffsetX = 125;
+  const buttonOffsetY = 125;
   const buttonSize = 50;
 
   const checkButton = this.add.image(element.x + buttonOffsetX, element.y - buttonOffsetY, 'societycheckButton')

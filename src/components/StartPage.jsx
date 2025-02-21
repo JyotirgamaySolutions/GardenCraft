@@ -143,7 +143,7 @@ export default class StartPage extends Phaser.Scene {
     .setInteractive()
     .on('pointerdown', () => {
         this.sound.play('buttonTap');
-        window.close();
+        window.location.href = 'http://games.rrbcea.org/';
     });
 
     const yesText = this.add.text(

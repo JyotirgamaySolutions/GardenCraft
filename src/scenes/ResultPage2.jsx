@@ -17,7 +17,7 @@ export default class ResultPage2 extends Phaser.Scene {
     this.load.image('societytree8', '/assets/SocietyAssets/images/pic8.png');
     this.load.image('societytree9', '/assets/SocietyAssets/images/pic9.png');
     this.load.image('societytree10', '/assets/SocietyAssets/images/309.png');
-    this.load.image('societytree11', '/assets/SocietyAssets/images/302.png');
+    this.load.image('societytree11', '/assets/PublicAssets/images/405.png');
     this.load.image('societytree12', '/assets/SocietyAssets/images/pic42.png');
     this.load.image('societytree13', '/assets/SocietyAssets/images/pic13.png');
     this.load.image('societytree14', '/assets/SocietyAssets/images/pic14.png');

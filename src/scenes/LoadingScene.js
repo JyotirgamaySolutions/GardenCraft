@@ -140,7 +140,7 @@ loadGameAssets() {
     this.load.image('societytree8', '/assets/SocietyAssets/images/pic8.png');
     this.load.image('societytree9', '/assets/SocietyAssets/images/pic9.png');
     this.load.image('societytree10', '/assets/SocietyAssets/images/309.png');
-    this.load.image('societytree11', '/assets/SocietyAssets/images/302.png');
+    this.load.image('societytree11', '/assets/PublicAssets/images/405.png');
     this.load.image('societytree12', '/assets/SocietyAssets/images/pic42.png');
     this.load.image('societytree13', '/assets/SocietyAssets/images/pic13.png');
     this.load.image('societytree14', '/assets/SocietyAssets/images/pic14.png');
@@ -178,7 +178,7 @@ loadGameAssets() {
    this.load.image('publictree4', '/assets/SocietyAssets/images/pic4.png');
    this.load.image('publictree5', '/assets/PublicAssets/images/5.png');
    this.load.image('publictree6', '/assets/PublicAssets/images/6.png');
-   this.load.image('publictree7', '/assets/SocietyAssets/images/pic18.png');
+   this.load.image('publictree7', '/assets/PublicAssets/images/701.png');
    this.load.image('publictree8', '/assets/PublicAssets/images/8.png');
    this.load.image('publictree9', '/assets/PublicAssets/images/9.png');
    this.load.image('publictree10', '/assets/PublicAssets/images/10.png');
@@ -186,19 +186,19 @@ loadGameAssets() {
    this.load.image('publictree12', '/assets/SocietyAssets/images/311.png');
    this.load.image('publictree13', '/assets/SocietyAssets/images/pic2.png'); //pic8, pic21, pic23
    this.load.image('publictree14', '/assets/PublicAssets/images/14.png');
-   this.load.image('publictree15', '/assets/PublicAssets/images/406.png');
+   this.load.image('publictree15', '/assets/PublicAssets/images/405.png');
    this.load.image('publictree16', '/assets/PublicAssets/images/16.png');
    this.load.image('publictree17', '/assets/PublicAssets/images/17.png');
    this.load.image('publictree18', '/assets/SocietyAssets/images/pic8.png');
    this.load.image('publictree19', '/assets/PublicAssets/images/402.png');
    this.load.image('publictree20', '/assets/SocietyAssets/images/pic38.png');
-   this.load.image('publictree21', '/assets/PublicAssets/images/404.png');
+   this.load.image('publictree21', '/assets/PublicAssets/images/702.png');
    this.load.image('publictree22', '/assets/PublicAssets/images/409.png');
    this.load.image('publictree23', '/assets/PublicAssets/images/23.png');
    this.load.image('publictree24', '/assets/SocietyAssets/images/pic21.png');
    this.load.image('publictree25', '/assets/SocietyAssets/images/pic22.png');
    this.load.image('publictree26', '/assets/PublicAssets/images/26.png');
-   this.load.image('publictree27', '/assets/PublicAssets/images/27.png');
+   this.load.image('publictree27', '/assets/PublicAssets/images/410.png');
    this.load.image('publictree28', '/assets/SocietyAssets/images/pic23.png');
 
     this.load.image('publicbackButton', '/assets/Utilities/home.png');

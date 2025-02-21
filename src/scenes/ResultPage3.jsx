@@ -7,35 +7,34 @@ export default class ResultPage3 extends Phaser.Scene {
     this.load.image('publicgardenBg1', '/assets/PublicAssets/public-t.png');
     this.load.audio('buttonTap', 'assets/audio/buttonTap.mp3');
     // Load tree images
-   this.load.image('publictree1', '/assets/SocietyAssets/images/pic3.png');
-   this.load.image('publictree2', '/assets/PublicAssets/images/2.png');
-   this.load.image('publictree3', '/assets/PublicAssets/images/3.png');
-   this.load.image('publictree4', '/assets/SocietyAssets/images/pic4.png');
-   this.load.image('publictree5', '/assets/PublicAssets/images/5.png');
-   this.load.image('publictree6', '/assets/PublicAssets/images/6.png');
-   this.load.image('publictree7', '/assets/SocietyAssets/images/pic18.png');
-   this.load.image('publictree8', '/assets/PublicAssets/images/8.png');
-   this.load.image('publictree9', '/assets/PublicAssets/images/9.png');
-   this.load.image('publictree10', '/assets/PublicAssets/images/10.png');
-   this.load.image('publictree11', '/assets/PublicAssets/images/408.png');
-   this.load.image('publictree12', '/assets/SocietyAssets/images/311.png');
-   this.load.image('publictree13', '/assets/SocietyAssets/images/pic2.png'); //pic8, pic21, pic23
-   this.load.image('publictree14', '/assets/PublicAssets/images/14.png');
-   this.load.image('publictree15', '/assets/PublicAssets/images/406.png');
-   this.load.image('publictree16', '/assets/PublicAssets/images/16.png');
-   this.load.image('publictree17', '/assets/PublicAssets/images/17.png');
-   this.load.image('publictree18', '/assets/SocietyAssets/images/pic8.png');
-   this.load.image('publictree19', '/assets/PublicAssets/images/402.png');
-   this.load.image('publictree20', '/assets/SocietyAssets/images/pic38.png');
-   this.load.image('publictree21', '/assets/PublicAssets/images/404.png');
-   this.load.image('publictree22', '/assets/PublicAssets/images/409.png');
-   this.load.image('publictree23', '/assets/PublicAssets/images/23.png');
-   this.load.image('publictree24', '/assets/SocietyAssets/images/pic21.png');
-   this.load.image('publictree25', '/assets/SocietyAssets/images/pic22.png');
-   this.load.image('publictree26', '/assets/PublicAssets/images/26.png');
-   this.load.image('publictree27', '/assets/PublicAssets/images/27.png');
-   this.load.image('publictree28', '/assets/SocietyAssets/images/pic23.png');
-
+    this.load.image('publictree1', '/assets/SocietyAssets/images/pic3.png');
+    this.load.image('publictree2', '/assets/PublicAssets/images/2.png');
+    this.load.image('publictree3', '/assets/PublicAssets/images/3.png');
+    this.load.image('publictree4', '/assets/SocietyAssets/images/pic4.png');
+    this.load.image('publictree5', '/assets/PublicAssets/images/5.png');
+    this.load.image('publictree6', '/assets/PublicAssets/images/6.png');
+    this.load.image('publictree7', '/assets/PublicAssets/images/701.png');
+    this.load.image('publictree8', '/assets/PublicAssets/images/8.png');
+    this.load.image('publictree9', '/assets/PublicAssets/images/9.png');
+    this.load.image('publictree10', '/assets/PublicAssets/images/10.png');
+    this.load.image('publictree11', '/assets/PublicAssets/images/408.png');
+    this.load.image('publictree12', '/assets/SocietyAssets/images/311.png');
+    this.load.image('publictree13', '/assets/SocietyAssets/images/pic2.png'); //pic8, pic21, pic23
+    this.load.image('publictree14', '/assets/PublicAssets/images/14.png');
+    this.load.image('publictree15', '/assets/PublicAssets/images/405.png');
+    this.load.image('publictree16', '/assets/PublicAssets/images/16.png');
+    this.load.image('publictree17', '/assets/PublicAssets/images/17.png');
+    this.load.image('publictree18', '/assets/SocietyAssets/images/pic8.png');
+    this.load.image('publictree19', '/assets/PublicAssets/images/501.png');
+    this.load.image('publictree20', '/assets/SocietyAssets/images/pic38.png');
+    this.load.image('publictree21', '/assets/PublicAssets/images/702.png');
+    this.load.image('publictree22', '/assets/PublicAssets/images/409.png');
+    this.load.image('publictree23', '/assets/PublicAssets/images/23.png');
+    this.load.image('publictree24', '/assets/SocietyAssets/images/pic21.png');
+    this.load.image('publictree25', '/assets/SocietyAssets/images/pic22.png');
+    this.load.image('publictree26', '/assets/PublicAssets/images/26.png');
+    this.load.image('publictree27', '/assets/PublicAssets/images/410.png');
+    this.load.image('publictree28', '/assets/SocietyAssets/images/pic23.png');
     this.load.image('publicbackButton', '/assets/Utilities/prew.png');
   }
 
@@ -47,7 +46,7 @@ export default class ResultPage3 extends Phaser.Scene {
 
     const resultBgBounds = background.getBounds();
     const originalBounds = data.designData.mainImageBounds;
-    const specialTrees = new Set(['publictree19','publictree1','publictree3','publictree4','publictree6','publictree8','publictree9','publictree10','publictree12','publictree14','publictree15','publictree16','publictree20','publictree21','publictree17','publictree22']);
+    const specialTrees = new Set(['publictree7','publictree19','publictree1','publictree3','publictree4','publictree6','publictree8','publictree9','publictree10','publictree12','publictree14','publictree15','publictree16','publictree20','publictree21','publictree17','publictree22']);
     // const specialTrees = new Set(['publictree1', 'publictree3', 'publictree4', 'publictree7', 'publictree9','publictree10', 'publictree15', 'publictree16','publictree17', 'publictree18', 'publictree20', 'publictree22', 'publictree28']);
 
     data.designData.elements.forEach(element => {

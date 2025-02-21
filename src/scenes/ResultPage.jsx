@@ -187,7 +187,7 @@
               .setFill('#00ff00')
               .setBackgroundColor('#000000');
   
-            setTimeout(() => this.scene.start('SelectGardenType'), 3000);
+              setTimeout(() => window.location.reload(), 3000);
           } catch (error) {
             console.error('Failed to send feedback:', error);
             this.loadingText.setText('Failed to submit feedback. Please try again.')
@@ -219,7 +219,8 @@
       .setInteractive()
       .on('pointerdown', () => {
         this.buttonTap.play();
-        this.scene.start('SelectGardenType');
+        // this.scene.start('SelectGardenType');
+        window.location.reload();
       });
   
     // Skip Button Text

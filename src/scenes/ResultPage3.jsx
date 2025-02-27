@@ -40,30 +40,47 @@ export default class ResultPage3 extends Phaser.Scene {
 
   create(data) {
     this.buttonTap = this.sound.add('buttonTap');
-
-    const background = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'publicgardenBg1')
-      .setDisplaySize(this.cameras.main.width, this.cameras.main.height);
-
-    const resultBgBounds = background.getBounds();
-    const originalBounds = data.designData.mainImageBounds;
-    const specialTrees = new Set(['publictree7','publictree19','publictree1','publictree3','publictree4','publictree6','publictree8','publictree9','publictree10','publictree12','publictree14','publictree15','publictree16','publictree20','publictree21','publictree17','publictree22']);
+    const specialTrees = new Set(['publictree7','publictree19','publictree3','publictree4','publictree6','publictree8','publictree9','publictree10','publictree12','publictree14','publictree15','publictree16','publictree20','publictree21','publictree17','publictree22']);
     // const specialTrees = new Set(['publictree1', 'publictree3', 'publictree4', 'publictree7', 'publictree9','publictree10', 'publictree15', 'publictree16','publictree17', 'publictree18', 'publictree20', 'publictree22', 'publictree28']);
+// Create full-screen background
+const background = this.add.image(
+  this.cameras.main.centerX,
+  this.cameras.main.centerY,
+  'publicgardenBg1'
+).setDisplaySize(this.cameras.main.width, this.cameras.main.height);
 
-    data.designData.elements.forEach(element => {
-      const xRatio = element.x / originalBounds.width;
-      const yRatio = element.y / originalBounds.height;
-      const newX = resultBgBounds.x + (xRatio * resultBgBounds.width);
-      const newY = resultBgBounds.y + (yRatio * resultBgBounds.height);
+// Calculate positioning parameters
+const originalBounds = data.designData.mainImageBounds;
+const bgScaledWidth = this.cameras.main.width;
+const bgScaledHeight = this.cameras.main.height;
+const bgTopLeftX = this.cameras.main.centerX - bgScaledWidth/2;
+const bgTopLeftY = this.cameras.main.centerY - bgScaledHeight/2;
+const scaleX = bgScaledWidth / originalBounds.width;
+const scaleY = bgScaledHeight / originalBounds.height;
 
-      const newElement = this.add.image(newX, newY, element.texture);
-      
-      // Apply 3x scale for special elements
-      if (specialTrees.has(element.texture)) {
-        newElement.setDisplaySize(264, 264); // 120*2.2=264
-      } else {
-        newElement.setDisplaySize(120, 120);
-      }
-    });
+// Position elements with corrected scaling and offsets
+data.designData.elements.forEach(element => {
+  const relX = element.x - originalBounds.x;
+  const relY = element.y - originalBounds.y;
+  
+  const newX = bgTopLeftX + (relX * scaleX);
+  const newY = bgTopLeftY + (relY * scaleY);
+
+  const newElement = this.add.image(newX, newY, element.texture)
+    .setDisplaySize(
+      element.displayWidth * scaleX * 1.5,
+      element.displayHeight * scaleY * 1.5
+    )
+    .setDepth(element.depth);
+
+  if(specialTrees.has(element.texture)) {
+    newElement.setDisplaySize(
+      192 * scaleX * 1.5,
+      192 * scaleY * 1.5
+    );
+  }
+});
+
 
     // Modified back button and home text
   const homeButton = this.add.image(50, 50, 'publicbackButton')

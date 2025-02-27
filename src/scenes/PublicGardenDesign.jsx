@@ -16,7 +16,7 @@ export default class PublicGardenDesign extends Phaser.Scene {
       "2-Table", "Bush2", "Kids", "Public", "Restroom", "Statue", "Dustbin", "GreenBush",
       "RoundedBush", "Potted plant", "Man", "Palm Tree", "Cypress", "Juniper"
     ];
-    this.specialTrees = new Set(['publictree7','publictree19','publictree1','publictree3','publictree4','publictree6','publictree8','publictree9','publictree10','publictree12','publictree14','publictree15','publictree16','publictree20','publictree21','publictree17','publictree22']);
+    this.specialTrees = new Set(['publictree7','publictree19','publictree3','publictree4','publictree6','publictree8','publictree9','publictree10','publictree12','publictree14','publictree15','publictree16','publictree20','publictree21','publictree17','publictree22']);
     // this.specialTrees = new Set(['publictree1', 'publictree3', 'publictree4', 'publictree7', 'publictree9','publictree10', 'publictree15', 'publictree16','publictree17', 'publictree18', 'publictree20', 'publictree22', 'publictree28']);
   } 
 
@@ -387,7 +387,7 @@ export default class PublicGardenDesign extends Phaser.Scene {
         if (gameObject.isPlaced) {
             gameObject.x = dragX;
             gameObject.y = dragY;
-            gameObject.setDepth(10);
+            // gameObject.setDepth(10);
 
             // Update button positions during drag
             if (gameObject.checkButton) {
@@ -401,7 +401,7 @@ export default class PublicGardenDesign extends Phaser.Scene {
         if (!gameObject.checkButton && !gameObject.cancelButton) {
             gameObject.x = dragX;
             gameObject.y = dragY;
-            gameObject.setDepth(10);
+            // gameObject.setDepth(10);
         }
     });
 
@@ -852,9 +852,13 @@ specialHandleCancelButtonClick(element) {
         .filter(element => this.mainImageBounds.contains(element.x, element.y))
         .map(element => ({
           texture: element.texture.key,
-          x: element.x - this.mainImageBounds.x,
-          y: element.y - this.mainImageBounds.y,
-          scale: element.scale
+          x: element.x,  // Keep absolute X
+          y: element.y,  // Keep absolute Y
+          scaleX: element.scaleX,  // Store actual scale
+          scaleY: element.scaleY,
+          displayWidth: element.displayWidth,
+          displayHeight: element.displayHeight,
+          depth: element.depth  // Store depth information
         })),
       mainImageBounds: {
         x: this.mainImageBounds.x,

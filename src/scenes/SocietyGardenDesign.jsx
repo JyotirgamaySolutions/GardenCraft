@@ -12,11 +12,11 @@ export default class SocietyGardenDesign extends Phaser.Scene {
     this.currentDepth = 1; // Add this line
     this.treeNames = [
       "Rippling Oasis", "Triostar", "Birdbath", "Seesaw", "Water body", "Flower", "L design", "Big Tree",
-      "PolygonDesign", "Flower Arrangment", "Swing", "Bush", "Boy", "Ivy Plant", "Gazebo", "Slide",
+      "PolygonDesign", "Flowers", "Swing", "Bush", "Boy", "Ivy Plant", "Gazebo", "Slide",
       "Bench", "Fountain", "Garden Lamps", "Compost area", "GreenBush", "RoundedBush", "Palm Tree", "Fern",
       "Plant", "S path", "Circle Table", "Rock garden", "Cypress", "Juniper"
     ];
-    this.specialTrees = new Set(['societytree1','societytree3','societytree4','societytree5','societytree7','societytree11','societytree12','societytree15','societytree16','societytree17','societytree18','societytree28']);
+    this.specialTrees = new Set(['societytree1','societytree4','societytree5','societytree7','societytree11','societytree12','societytree15','societytree16','societytree17','societytree18','societytree28']);
     // this.specialTrees = new Set(['societytree18','societytree9','societytree5', 'societytree7', 'societytree19','societytree1','societytree3','societytree28','societytree4','societytree11','societytree12','societytree10','societytree28']);
   } 
 
@@ -385,7 +385,7 @@ export default class SocietyGardenDesign extends Phaser.Scene {
         if (gameObject.isPlaced) {
             gameObject.x = dragX;
             gameObject.y = dragY;
-            gameObject.setDepth(10);
+            // gameObject.setDepth(10);
 
             // Update button positions during drag
             if (gameObject.checkButton) {
@@ -399,7 +399,7 @@ export default class SocietyGardenDesign extends Phaser.Scene {
         if (!gameObject.checkButton && !gameObject.cancelButton) {
             gameObject.x = dragX;
             gameObject.y = dragY;
-            gameObject.setDepth(10);
+            // gameObject.setDepth(10);
         }
     });
 
@@ -851,9 +851,13 @@ specialHandleCancelButtonClick(element) {
         .filter(element => this.mainImageBounds.contains(element.x, element.y))
         .map(element => ({
           texture: element.texture.key,
-          x: element.x - this.mainImageBounds.x,
-          y: element.y - this.mainImageBounds.y,
-          scale: element.scale
+          x: element.x,  // Keep absolute X
+          y: element.y,  // Keep absolute Y
+          scaleX: element.scaleX,  // Store actual scale
+          scaleY: element.scaleY,
+          displayWidth: element.displayWidth,
+          displayHeight: element.displayHeight,
+          depth: element.depth  // Store depth information
         })),
       mainImageBounds: {
         x: this.mainImageBounds.x,

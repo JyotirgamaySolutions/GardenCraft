@@ -36,58 +36,73 @@ export default class ResultPage2 extends Phaser.Scene {
     this.load.image('societytree27', '/assets/SocietyAssets/images/pic27.png');
     this.load.image('societytree28', '/assets/SocietyAssets/images/306.png');
 
-
     this.load.image('societybackButton', '/assets/Utilities/prew.png');
   }
 
   create(data) {
     this.buttonTap = this.sound.add('buttonTap');
+    const specialTrees = new Set(['societytree1','societytree4','societytree5','societytree7','societytree11','societytree12','societytree15','societytree16','societytree17','societytree18','societytree28']);
 
-    const background = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'societygardenBg1')
-      .setDisplaySize(this.cameras.main.width, this.cameras.main.height);
+// Create full-screen background
+const background = this.add.image(
+  this.cameras.main.centerX,
+  this.cameras.main.centerY,
+  'societygardenBg1'
+).setDisplaySize(this.cameras.main.width, this.cameras.main.height);
 
-    const resultBgBounds = background.getBounds();
-    const originalBounds = data.designData.mainImageBounds;
-    const specialTrees = new Set(['societytree1','societytree3','societytree4','societytree5','societytree7','societytree11','societytree12','societytree15','societytree16','societytree17','societytree18','societytree28']);
-    // const specialTrees = new Set(['societytree18','societytree9','societytree5', 'societytree7', 'societytree19','societytree1','societytree3','societytree28','societytree4','societytree11','societytree12','societytree10','societytree28']);
+// Calculate positioning parameters
+const originalBounds = data.designData.mainImageBounds;
+const bgScaledWidth = this.cameras.main.width;
+const bgScaledHeight = this.cameras.main.height;
+const bgTopLeftX = this.cameras.main.centerX - bgScaledWidth/2;
+const bgTopLeftY = this.cameras.main.centerY - bgScaledHeight/2;
+const scaleX = bgScaledWidth / originalBounds.width;
+const scaleY = bgScaledHeight / originalBounds.height;
 
-    data.designData.elements.forEach(element => {
-      const xRatio = element.x / originalBounds.width;
-      const yRatio = element.y / originalBounds.height;
-      const newX = resultBgBounds.x + (xRatio * resultBgBounds.width);
-      const newY = resultBgBounds.y + (yRatio * resultBgBounds.height);
+// Position elements with corrected scaling and offsets
+data.designData.elements.forEach(element => {
+  const relX = element.x - originalBounds.x;
+  const relY = element.y - originalBounds.y;
+  
+  const newX = bgTopLeftX + (relX * scaleX);
+  const newY = bgTopLeftY + (relY * scaleY);
 
-      const newElement = this.add.image(newX, newY, element.texture);
-      
-      // Apply 3x scale for special elements
-      if (specialTrees.has(element.texture)) {
-        newElement.setDisplaySize(264, 264); // 120*3=360
-      } else {
-        newElement.setDisplaySize(120, 120);
-      }
+  const newElement = this.add.image(newX, newY, element.texture)
+    .setDisplaySize(
+      element.displayWidth * scaleX * 1.5,
+      element.displayHeight * scaleY * 1.5
+    )
+    .setDepth(element.depth);
+
+  if(specialTrees.has(element.texture)) {
+    newElement.setDisplaySize(
+      192 * scaleX * 1.5,
+      192 * scaleY * 1.5
+    );
+  }
+});
+
+    // Add UI elements
+    const homeButton = this.add.image(50, 50, 'societybackButton')
+      .setInteractive()
+      .setDisplaySize(40, 40)
+      .on('pointerdown', () => {
+        this.buttonTap.play();
+        this.showFeedbackForm();
+      });
+
+    this.add.text(80, 50, 'Home', {
+      fontSize: '28px',
+      fill: '#fff',
+      fontFamily: 'Arial',
+      fontStyle: 'bold'
+    }).setOrigin(0, 0.5)
+    .setInteractive()
+    .on('pointerdown', () => {
+      this.buttonTap.play();
+      this.showFeedbackForm();
     });
-
-    // Modified back button and home text
-  const homeButton = this.add.image(50, 50, 'societybackButton')
-  .setInteractive()
-  .setDisplaySize(40, 40)
-  .on('pointerdown', () => {
-    this.buttonTap.play();
-    this.showFeedbackForm();
-  });
-
-const homeText = this.add.text(50 + 30, 50, 'Home', {
-  fontSize: '28px',
-  fill: '#fff',
-  fontFamily: 'Arial',
-  fontStyle: 'bold',
-}).setOrigin(0, 0.5)
-  .setInteractive()
-  .on('pointerdown', () => {
-    this.buttonTap.play();
-    this.showFeedbackForm();
-  });
-}
+  }
 
 showFeedbackForm() {
 // Create overlay background

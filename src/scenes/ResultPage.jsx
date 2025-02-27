@@ -1,16 +1,14 @@
-  export default class ResultPage extends Phaser.Scene {
+export default class ResultPage extends Phaser.Scene {
   constructor() {
     super({ key: 'ResultPage' });
     this.selectedRating = null;
   }
 
   preload() {
-    // ... keep existing preload code ...
     this.load.audio('buttonTap', 'assets/audio/buttonTap.mp3');
-    // Load tree images
+    // Load all required images
     this.load.image('terracetree1', '/assets/TerraceAssets/images/image80.png');
     this.load.image('terracetree2', '/assets/TerraceAssets/images/2.png');
-    // this.load.image('terracetree3', '/assets/TerraceAssets/images/3.png');
     this.load.image('terracetree3', '/assets/TerraceAssets/images/205.png');
     this.load.image('terracetree4', '/assets/TerraceAssets/images/4.png');
     this.load.image('terracetree5', '/assets/TerraceAssets/images/202.png');
@@ -37,41 +35,54 @@
     this.load.image('terracetree26', '/assets/TerraceAssets/images/212.png');
     this.load.image('terracetree27', '/assets/TerraceAssets/images/201.png');
     this.load.image('terracetree28', '/assets/TerraceAssets/images/62.png');
-
     this.load.image('terracebackButton', '/assets/Utilities/prew.png');
     this.load.image('terracegardenBg1', '/assets/TerraceAssets/T.png');
   }
 
   create(data) {
-    
     this.buttonTap = this.sound.add('buttonTap');
-
-    const background = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'terracegardenBg1')
-      .setDisplaySize(this.cameras.main.width, this.cameras.main.height);
-    
-    const resultBgBounds = background.getBounds();
-    const originalBounds = data.designData.mainImageBounds;
     const specialTrees = new Set(['terracetree5','terracetree10','terracetree15','terracetree23','terracetree25']);
 
-    data.designData.elements.forEach(element => {
-      const xRatio = element.x / originalBounds.width;
-      const yRatio = element.y / originalBounds.height;
-      const newX = resultBgBounds.x + (xRatio * resultBgBounds.width);
-      const newY = resultBgBounds.y + (yRatio * resultBgBounds.height);
+    // Create full-screen background
+    const background = this.add.image(
+      this.cameras.main.centerX,
+      this.cameras.main.centerY,
+      'terracegardenBg1'
+    ).setDisplaySize(this.cameras.main.width, this.cameras.main.height);
 
-      // Add element with size based on whether it's special
-      const newElement = this.add.image(newX, newY, element.texture);
+    // Calculate positioning parameters
+    const originalBounds = data.designData.mainImageBounds;
+    const bgScaledWidth = this.cameras.main.width;
+    const bgScaledHeight = this.cameras.main.height;
+    const bgTopLeftX = this.cameras.main.centerX - bgScaledWidth/2;
+    const bgTopLeftY = this.cameras.main.centerY - bgScaledHeight/2;
+    const scaleX = bgScaledWidth / originalBounds.width;
+    const scaleY = bgScaledHeight / originalBounds.height;
+
+    // Position elements with corrected scaling and offsets
+    data.designData.elements.forEach(element => {
+      const relX = element.x - originalBounds.x;
+      const relY = element.y - originalBounds.y;
       
-      if (specialTrees.has(element.texture)) {
-        // Scale special trees 3x (120*3=360)
-        newElement.setDisplaySize(192, 192);
-      } else {
-        // Regular size for other elements
-        newElement.setDisplaySize(120, 120);
+      const newX = bgTopLeftX + (relX * scaleX);
+      const newY = bgTopLeftY + (relY * scaleY);
+
+      const newElement = this.add.image(newX, newY, element.texture)
+        .setDisplaySize(
+          element.displayWidth * scaleX * 1.5,
+          element.displayHeight * scaleY * 1.5
+        )
+        .setDepth(element.depth);
+
+      if(specialTrees.has(element.texture)) {
+        newElement.setDisplaySize(
+          192 * scaleX * 1.5,
+          192 * scaleY * 1.5
+        );
       }
     });
 
-    // Modified back button and home text
+    // Add UI elements
     const homeButton = this.add.image(50, 50, 'terracebackButton')
       .setInteractive()
       .setDisplaySize(40, 40)
@@ -80,19 +91,19 @@
         this.showFeedbackForm();
       });
 
-    const homeText = this.add.text(50 + 30, 50, 'Home', {
+    this.add.text(80, 50, 'Home', {
       fontSize: '28px',
       fill: '#fff',
       fontFamily: 'Arial',
-      fontStyle: 'bold',
+      fontStyle: 'bold'
     }).setOrigin(0, 0.5)
-      .setInteractive()
-      .on('pointerdown', () => {
-        this.buttonTap.play();
-        this.showFeedbackForm();
-      });
+    .setInteractive()
+    .on('pointerdown', () => {
+      this.buttonTap.play();
+      this.showFeedbackForm();
+    });
   }
-
+  
   showFeedbackForm() {
     // Create overlay background
     const overlay = this.add.rectangle(

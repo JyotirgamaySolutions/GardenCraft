@@ -395,7 +395,7 @@ this.input.on('gameobjectup', (pointer, gameObject) => {
         if (gameObject.isPlaced) {
             gameObject.x = dragX;
             gameObject.y = dragY;
-            gameObject.setDepth(10);
+            // gameObject.setDepth(10);
 
             // Update button positions during drag
             if (gameObject.checkButton) {
@@ -409,7 +409,7 @@ this.input.on('gameobjectup', (pointer, gameObject) => {
         if (!gameObject.checkButton && !gameObject.cancelButton) {
             gameObject.x = dragX;
             gameObject.y = dragY;
-            gameObject.setDepth(10);
+            // gameObject.setDepth(10);
         }
     });
 
@@ -860,9 +860,13 @@ specialHandleCancelButtonClick(element) {
         .filter(element => this.mainImageBounds.contains(element.x, element.y))
         .map(element => ({
           texture: element.texture.key,
-          x: element.x - this.mainImageBounds.x,
-          y: element.y - this.mainImageBounds.y,
-          scale: element.scale
+          x: element.x,  // Keep absolute X
+          y: element.y,  // Keep absolute Y
+          scaleX: element.scaleX,  // Store actual scale
+          scaleY: element.scaleY,
+          displayWidth: element.displayWidth,
+          displayHeight: element.displayHeight,
+          depth: element.depth  // Store depth information
         })),
       mainImageBounds: {
         x: this.mainImageBounds.x,
@@ -871,7 +875,6 @@ specialHandleCancelButtonClick(element) {
         height: this.mainImageBounds.height
       }
     };
-
     this.scene.start('ResultPage', { designData });
   }
 

@@ -27,9 +27,9 @@ export default class ResultPage3 extends Phaser.Scene {
     this.load.image('publictree18', '/assets/SocietyAssets/images/pic8.png');
     this.load.image('publictree19', '/assets/PublicAssets/images/501.png');
     this.load.image('publictree20', '/assets/SocietyAssets/images/pic38.png');
-    this.load.image('publictree21', '/assets/PublicAssets/images/702.png');
+    this.load.image('publictree21', '/assets/PublicAssets/images/restroom.png');
     this.load.image('publictree22', '/assets/PublicAssets/images/409.png');
-    this.load.image('publictree23', '/assets/PublicAssets/images/23.png');
+    this.load.image('publictree23', '/assets/PublicAssets/images/dustbin.png');
     this.load.image('publictree24', '/assets/SocietyAssets/images/pic21.png');
     this.load.image('publictree25', '/assets/SocietyAssets/images/pic22.png');
     this.load.image('publictree26', '/assets/PublicAssets/images/26.png');
@@ -68,19 +68,22 @@ data.designData.elements.forEach(element => {
 
   const newElement = this.add.image(newX, newY, element.texture)
     .setDisplaySize(
-      element.displayWidth * scaleX * 1.5,
-      element.displayHeight * scaleY * 1.5
+      element.displayWidth * scaleX ,
+      element.displayHeight * scaleY 
+      // element.displayWidth * scaleX * 1.5,
+      // element.displayHeight * scaleY * 1.5
     )
     .setDepth(element.depth);
 
   if(specialTrees.has(element.texture)) {
     newElement.setDisplaySize(
-      192 * scaleX * 1.5,
-      192 * scaleY * 1.5
+      // 192 * scaleX * 1.5,
+      // 192 * scaleY * 1.5
+      192 * scaleX ,
+      192 * scaleY
     );
   }
 });
-
 
     // Modified back button and home text
   const homeButton = this.add.image(50, 50, 'publicbackButton')

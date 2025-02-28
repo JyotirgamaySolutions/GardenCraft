@@ -52,9 +52,9 @@ export default class PublicGardenDesign extends Phaser.Scene {
    this.load.image('publictree18', '/assets/SocietyAssets/images/pic8.png');
    this.load.image('publictree19', '/assets/PublicAssets/images/501.png');
    this.load.image('publictree20', '/assets/SocietyAssets/images/pic38.png');
-   this.load.image('publictree21', '/assets/PublicAssets/images/702.png');
+   this.load.image('publictree21', '/assets/PublicAssets/images/restroom.png');
    this.load.image('publictree22', '/assets/PublicAssets/images/409.png');
-   this.load.image('publictree23', '/assets/PublicAssets/images/23.png');
+   this.load.image('publictree23', '/assets/PublicAssets/images/dustbin.png');
    this.load.image('publictree24', '/assets/SocietyAssets/images/pic21.png');
    this.load.image('publictree25', '/assets/SocietyAssets/images/pic22.png');
    this.load.image('publictree26', '/assets/PublicAssets/images/26.png');
@@ -838,38 +838,38 @@ specialHandleCancelButtonClick(element) {
 }
 //..................................
 
-  saveFinalDesign() {
-    if (this.finalDesign || !this.scene) return;
+saveFinalDesign() {
+  if (this.finalDesign || !this.scene) return;
 
-    if (this.timerEvent) {
-      this.timerEvent.remove();
-      this.timerEvent = null;
-    }
-
-    const designData = {
-      background: 'publicgardenBg',
-      elements: this.elements
-        .filter(element => this.mainImageBounds.contains(element.x, element.y))
-        .map(element => ({
-          texture: element.texture.key,
-          x: element.x,  // Keep absolute X
-          y: element.y,  // Keep absolute Y
-          scaleX: element.scaleX,  // Store actual scale
-          scaleY: element.scaleY,
-          displayWidth: element.displayWidth,
-          displayHeight: element.displayHeight,
-          depth: element.depth  // Store depth information
-        })),
-      mainImageBounds: {
-        x: this.mainImageBounds.x,
-        y: this.mainImageBounds.y,
-        width: this.mainImageBounds.width,
-        height: this.mainImageBounds.height
-      }
-    };
-
-    this.scene.start('ResultPage3', { designData });
+  if (this.timerEvent) {
+    this.timerEvent.remove();
+    this.timerEvent = null;
   }
+
+  const designData = {
+    background: 'publicgardenBg',
+    elements: this.elements
+      .filter(element => this.mainImageBounds.contains(element.x, element.y))
+      .map(element => ({
+        texture: element.texture.key,
+        x: element.x,  // Keep absolute X
+        y: element.y,  // Keep absolute Y
+        scaleX: element.scaleX,  // Store actual scale
+        scaleY: element.scaleY,
+        displayWidth: element.displayWidth,
+        displayHeight: element.displayHeight,
+        depth: element.depth  // Store depth information
+      })),
+    mainImageBounds: {
+      x: this.mainImageBounds.x,
+      y: this.mainImageBounds.y,
+      width: this.mainImageBounds.width,
+      height: this.mainImageBounds.height
+    }
+  };
+
+  this.scene.start('ResultPage3', { designData });
+}
 
   shutdown() {
     if (this.timerEvent) {

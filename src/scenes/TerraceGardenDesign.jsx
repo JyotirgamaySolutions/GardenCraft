@@ -38,7 +38,7 @@ export default class TerraceGardenDesign extends Phaser.Scene {
     this.load.image('terracetree2', '/assets/TerraceAssets/images/2.png');
     // this.load.image('terracetree3', '/assets/TerraceAssets/images/3.png');
     this.load.image('terracetree3', '/assets/TerraceAssets/images/205.png');
-    this.load.image('terracetree4', '/assets/TerraceAssets/images/4.png');
+    this.load.image('terracetree4', '/assets/TerraceAssets/images/902.png');
     this.load.image('terracetree5', '/assets/TerraceAssets/images/202.png');
     this.load.image('terracetree6', '/assets/TerraceAssets/images/208.png');
     this.load.image('terracetree7', '/assets/TerraceAssets/images/206.png');
@@ -46,7 +46,7 @@ export default class TerraceGardenDesign extends Phaser.Scene {
     this.load.image('terracetree9', '/assets/TerraceAssets/images/9.png');
     this.load.image('terracetree10', '/assets/TerraceAssets/images/10.png');
     this.load.image('terracetree11', '/assets/SocietyAssets/images/pic3.png');
-    this.load.image('terracetree12', '/assets/TerraceAssets/images/7.png');
+    this.load.image('terracetree12', '/assets/TerraceAssets/images/901.png');
     this.load.image('terracetree13', '/assets/TerraceAssets/images/13.png');
     this.load.image('terracetree14', '/assets/TerraceAssets/images/14.png');
     this.load.image('terracetree15', '/assets/TerraceAssets/images/211.png');
@@ -58,7 +58,7 @@ export default class TerraceGardenDesign extends Phaser.Scene {
     this.load.image('terracetree21', '/assets/TerraceAssets/images/25.png');
     this.load.image('terracetree22', '/assets/TerraceAssets/images/209.png');
     this.load.image('terracetree23', '/assets/TerraceAssets/images/umbrella.png');
-    this.load.image('terracetree24', '/assets/TerraceAssets/images/34.png');
+    this.load.image('terracetree24', '/assets/TerraceAssets/images/903.png');
     this.load.image('terracetree25', '/assets/TerraceAssets/images/220.png');
     this.load.image('terracetree26', '/assets/TerraceAssets/images/212.png');
     this.load.image('terracetree27', '/assets/TerraceAssets/images/201.png');
@@ -846,37 +846,38 @@ specialHandleCancelButtonClick(element) {
   this.specialActionButton(element);
 }
 //..................................
-  saveFinalDesign() {
-    if (this.finalDesign || !this.scene) return;
+saveFinalDesign() {
+  if (this.finalDesign || !this.scene) return;
 
-    if (this.timerEvent) {
-      this.timerEvent.remove();
-      this.timerEvent = null;
-    }
-
-    const designData = {
-      background: 'terracegardenBg',
-      elements: this.elements
-        .filter(element => this.mainImageBounds.contains(element.x, element.y))
-        .map(element => ({
-          texture: element.texture.key,
-          x: element.x,  // Keep absolute X
-          y: element.y,  // Keep absolute Y
-          scaleX: element.scaleX,  // Store actual scale
-          scaleY: element.scaleY,
-          displayWidth: element.displayWidth,
-          displayHeight: element.displayHeight,
-          depth: element.depth  // Store depth information
-        })),
-      mainImageBounds: {
-        x: this.mainImageBounds.x,
-        y: this.mainImageBounds.y,
-        width: this.mainImageBounds.width,
-        height: this.mainImageBounds.height
-      }
-    };
-    this.scene.start('ResultPage', { designData });
+  if (this.timerEvent) {
+    this.timerEvent.remove();
+    this.timerEvent = null;
   }
+
+  const designData = {
+    background: 'terracegardenBg',
+    elements: this.elements
+      .filter(element => this.mainImageBounds.contains(element.x, element.y))
+      .map(element => ({
+        texture: element.texture.key,
+        x: element.x,  // Keep absolute X
+        y: element.y,  // Keep absolute Y
+        scaleX: element.scaleX,  // Store actual scale
+        scaleY: element.scaleY,
+        displayWidth: element.displayWidth,
+        displayHeight: element.displayHeight,
+        depth: element.depth  // Store depth information
+      })),
+    mainImageBounds: {
+      x: this.mainImageBounds.x,
+      y: this.mainImageBounds.y,
+      width: this.mainImageBounds.width,
+      height: this.mainImageBounds.height
+    }
+  };
+  this.scene.start('ResultPage', { designData });
+}
+
 
   shutdown() {
     if (this.timerEvent) {

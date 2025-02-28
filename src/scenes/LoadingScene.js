@@ -92,7 +92,7 @@ loadGameAssets() {
     this.load.image('terracetree2', '/assets/TerraceAssets/images/2.png');
     // this.load.image('terracetree3', '/assets/TerraceAssets/images/3.png');
     this.load.image('terracetree3', '/assets/TerraceAssets/images/205.png');
-    this.load.image('terracetree4', '/assets/TerraceAssets/images/4.png');
+    this.load.image('terracetree4', '/assets/TerraceAssets/images/902.png');
     this.load.image('terracetree5', '/assets/TerraceAssets/images/202.png');
     this.load.image('terracetree6', '/assets/TerraceAssets/images/208.png');
     this.load.image('terracetree7', '/assets/TerraceAssets/images/206.png');
@@ -100,7 +100,7 @@ loadGameAssets() {
     this.load.image('terracetree9', '/assets/TerraceAssets/images/9.png');
     this.load.image('terracetree10', '/assets/TerraceAssets/images/10.png');
     this.load.image('terracetree11', '/assets/SocietyAssets/images/pic3.png');
-    this.load.image('terracetree12', '/assets/TerraceAssets/images/7.png');
+    this.load.image('terracetree12', '/assets/TerraceAssets/images/901.png');
     this.load.image('terracetree13', '/assets/TerraceAssets/images/13.png');
     this.load.image('terracetree14', '/assets/TerraceAssets/images/14.png');
     this.load.image('terracetree15', '/assets/TerraceAssets/images/211.png');
@@ -112,7 +112,7 @@ loadGameAssets() {
     this.load.image('terracetree21', '/assets/TerraceAssets/images/25.png');
     this.load.image('terracetree22', '/assets/TerraceAssets/images/209.png');
     this.load.image('terracetree23', '/assets/TerraceAssets/images/umbrella.png');
-    this.load.image('terracetree24', '/assets/TerraceAssets/images/34.png');
+    this.load.image('terracetree24', '/assets/TerraceAssets/images/903.png');
     this.load.image('terracetree25', '/assets/TerraceAssets/images/220.png');
     this.load.image('terracetree26', '/assets/TerraceAssets/images/212.png');
     this.load.image('terracetree27', '/assets/TerraceAssets/images/201.png');
@@ -142,7 +142,7 @@ loadGameAssets() {
     this.load.image('societytree10', '/assets/SocietyAssets/images/309.png');
     this.load.image('societytree11', '/assets/PublicAssets/images/405.png');
     this.load.image('societytree12', '/assets/SocietyAssets/images/pic42.png');
-    this.load.image('societytree13', '/assets/SocietyAssets/images/pic13.png');
+    this.load.image('societytree13', '/assets/SocietyAssets/images/boy.png');
     this.load.image('societytree14', '/assets/SocietyAssets/images/pic14.png');
     this.load.image('societytree15', '/assets/SocietyAssets/images/303.png');
     this.load.image('societytree16', '/assets/SocietyAssets/images/311.png');
@@ -192,9 +192,9 @@ loadGameAssets() {
    this.load.image('publictree18', '/assets/SocietyAssets/images/pic8.png');
    this.load.image('publictree19', '/assets/PublicAssets/images/402.png');
    this.load.image('publictree20', '/assets/SocietyAssets/images/pic38.png');
-   this.load.image('publictree21', '/assets/PublicAssets/images/702.png');
+   this.load.image('publictree21', '/assets/PublicAssets/images/restroom.png');
    this.load.image('publictree22', '/assets/PublicAssets/images/409.png');
-   this.load.image('publictree23', '/assets/PublicAssets/images/23.png');
+   this.load.image('publictree23', '/assets/PublicAssets/images/dustbin.png');
    this.load.image('publictree24', '/assets/SocietyAssets/images/pic21.png');
    this.load.image('publictree25', '/assets/SocietyAssets/images/pic22.png');
    this.load.image('publictree26', '/assets/PublicAssets/images/26.png');

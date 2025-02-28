@@ -19,13 +19,13 @@ export default class ResultPage2 extends Phaser.Scene {
     this.load.image('societytree10', '/assets/SocietyAssets/images/309.png');
     this.load.image('societytree11', '/assets/PublicAssets/images/405.png');
     this.load.image('societytree12', '/assets/SocietyAssets/images/pic42.png');
-    this.load.image('societytree13', '/assets/SocietyAssets/images/pic13.png');
+    this.load.image('societytree13', '/assets/SocietyAssets/images/boy.png');
     this.load.image('societytree14', '/assets/SocietyAssets/images/pic14.png');
     this.load.image('societytree15', '/assets/SocietyAssets/images/303.png');
     this.load.image('societytree16', '/assets/SocietyAssets/images/311.png');
     this.load.image('societytree17', '/assets/SocietyAssets/images/308.png');
     this.load.image('societytree18', '/assets/SocietyAssets/images/307.png');
-    this.load.image('societytree19', '/assets/SocietyAssets/images/301.png');
+    this.load.image('societytree19', '/assets/SocietyAssets/images/bench.png');
     this.load.image('societytree20', '/assets/SocietyAssets/images/304.png');
     this.load.image('societytree21', '/assets/SocietyAssets/images/pic21.png');
     this.load.image('societytree22', '/assets/SocietyAssets/images/pic22.png');
@@ -69,15 +69,19 @@ data.designData.elements.forEach(element => {
 
   const newElement = this.add.image(newX, newY, element.texture)
     .setDisplaySize(
-      element.displayWidth * scaleX * 1.5,
-      element.displayHeight * scaleY * 1.5
+      element.displayWidth * scaleX ,
+      element.displayHeight * scaleY 
+      // element.displayWidth * scaleX * 1.5,
+      // element.displayHeight * scaleY * 1.5
     )
     .setDepth(element.depth);
 
   if(specialTrees.has(element.texture)) {
     newElement.setDisplaySize(
-      192 * scaleX * 1.5,
-      192 * scaleY * 1.5
+      192 * scaleX,
+      192 * scaleY 
+      // 192 * scaleX * 1.5,
+      // 192 * scaleY * 1.5
     );
   }
 });

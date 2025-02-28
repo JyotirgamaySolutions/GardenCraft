@@ -26,12 +26,16 @@ export default class StartPage extends Phaser.Scene {
     .setOrigin(0.5)
     .setDisplaySize(this.cameras.main.width, this.cameras.main.height);
 
-    // Create buttons
     this.createImageButton('start-icon', this.cameras.main.centerX - 400, 200, () => {
-      fetch('http://localhost:3000/increment', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
-      })
+      // fetch('http://localhost:3000/increment', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' }
+      // })
+      // In your StartPage.jsx scene
+fetch('https://usergarden.vercel.app/api/increment', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' }
+})
       .then(response => response.json())
       .then(data => {
         console.log('Current count:', data.count);

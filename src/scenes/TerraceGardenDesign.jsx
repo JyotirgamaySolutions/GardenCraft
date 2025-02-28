@@ -797,7 +797,7 @@ specialHandleCheckButtonClick(element) {
   this.checkSound.play();
 
   // Increase size by 30%
-  element.setDisplaySize(element.originalSize.width * 1.6, element.originalSize.height * 1.6);
+  element.setDisplaySize(element.originalSize.width * 1.9, element.originalSize.height * 1.9);
 
   // Create a copy in the original position with the original size
   const copy = this.add.image(element.holderOriginalX, element.holderOriginalY, element.texture.key)

@@ -838,38 +838,38 @@ specialHandleCancelButtonClick(element) {
 }
 //..................................
 
-saveFinalDesign() {
-  if (this.finalDesign || !this.scene) return;
+  saveFinalDesign() {
+    if (this.finalDesign || !this.scene) return;
 
-  if (this.timerEvent) {
-    this.timerEvent.remove();
-    this.timerEvent = null;
-  }
-
-  const designData = {
-    background: 'publicgardenBg',
-    elements: this.elements
-      .filter(element => this.mainImageBounds.contains(element.x, element.y))
-      .map(element => ({
-        texture: element.texture.key,
-        x: element.x,  // Keep absolute X
-        y: element.y,  // Keep absolute Y
-        scaleX: element.scaleX,  // Store actual scale
-        scaleY: element.scaleY,
-        displayWidth: element.displayWidth,
-        displayHeight: element.displayHeight,
-        depth: element.depth  // Store depth information
-      })),
-    mainImageBounds: {
-      x: this.mainImageBounds.x,
-      y: this.mainImageBounds.y,
-      width: this.mainImageBounds.width,
-      height: this.mainImageBounds.height
+    if (this.timerEvent) {
+      this.timerEvent.remove();
+      this.timerEvent = null;
     }
-  };
 
-  this.scene.start('ResultPage3', { designData });
-}
+    const designData = {
+      background: 'publicgardenBg',
+      elements: this.elements
+        .filter(element => this.mainImageBounds.contains(element.x, element.y))
+        .map(element => ({
+          texture: element.texture.key,
+          x: element.x,  // Keep absolute X
+          y: element.y,  // Keep absolute Y
+          scaleX: element.scaleX,  // Store actual scale
+          scaleY: element.scaleY,
+          displayWidth: element.displayWidth,
+          displayHeight: element.displayHeight,
+          depth: element.depth  // Store depth information
+        })),
+      mainImageBounds: {
+        x: this.mainImageBounds.x,
+        y: this.mainImageBounds.y,
+        width: this.mainImageBounds.width,
+        height: this.mainImageBounds.height
+      }
+    };
+
+    this.scene.start('ResultPage3', { designData });
+  }
 
   shutdown() {
     if (this.timerEvent) {

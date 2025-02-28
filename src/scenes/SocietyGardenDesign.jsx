@@ -13,7 +13,7 @@ export default class SocietyGardenDesign extends Phaser.Scene {
     this.treeNames = [
       "Rippling Oasis", "Triostar", "Birdbath", "Seesaw", "Water body", "Flower", "L design", "Big Tree",
       "PolygonDesign", "Flowers", "Swing", "Bush", "Boy", "Ivy Plant", "Gazebo", "Slide",
-      "Bench", "Fountain", "Garden Lamp", "Compost area", "GreenBush", "RoundedBush", "Palm Tree", "Fern",
+      "Bench", "Fountain", "Garden Lamps", "Compost area", "GreenBush", "RoundedBush", "Palm Tree", "Fern",
       "Plant", "S path", "Circle Table", "Rock garden", "Cypress", "Juniper"
     ];
     this.specialTrees = new Set(['societytree1','societytree3','societytree4','societytree5','societytree7','societytree11','societytree12','societytree15','societytree16','societytree17','societytree18','societytree28']);
@@ -837,38 +837,38 @@ specialHandleCancelButtonClick(element) {
 }
 //..................................
 
-saveFinalDesign() {
-  if (this.finalDesign || !this.scene) return;
+  saveFinalDesign() {
+    if (this.finalDesign || !this.scene) return;
 
-  if (this.timerEvent) {
-    this.timerEvent.remove();
-    this.timerEvent = null;
-  }
-
-  const designData = {
-    background: 'societygardenBg',
-    elements: this.elements
-      .filter(element => this.mainImageBounds.contains(element.x, element.y))
-      .map(element => ({
-        texture: element.texture.key,
-        x: element.x,  // Keep absolute X
-        y: element.y,  // Keep absolute Y
-        scaleX: element.scaleX,  // Store actual scale
-        scaleY: element.scaleY,
-        displayWidth: element.displayWidth,
-        displayHeight: element.displayHeight,
-        depth: element.depth  // Store depth information
-      })),
-    mainImageBounds: {
-      x: this.mainImageBounds.x,
-      y: this.mainImageBounds.y,
-      width: this.mainImageBounds.width,
-      height: this.mainImageBounds.height
+    if (this.timerEvent) {
+      this.timerEvent.remove();
+      this.timerEvent = null;
     }
-  };
 
-  this.scene.start('ResultPage2', { designData });
-}
+    const designData = {
+      background: 'societygardenBg',
+      elements: this.elements
+        .filter(element => this.mainImageBounds.contains(element.x, element.y))
+        .map(element => ({
+          texture: element.texture.key,
+          x: element.x,  // Keep absolute X
+          y: element.y,  // Keep absolute Y
+          scaleX: element.scaleX,  // Store actual scale
+          scaleY: element.scaleY,
+          displayWidth: element.displayWidth,
+          displayHeight: element.displayHeight,
+          depth: element.depth  // Store depth information
+        })),
+      mainImageBounds: {
+        x: this.mainImageBounds.x,
+        y: this.mainImageBounds.y,
+        width: this.mainImageBounds.width,
+        height: this.mainImageBounds.height
+      }
+    };
+
+    this.scene.start('ResultPage2', { designData });
+  }
 
   shutdown() {
     if (this.timerEvent) {

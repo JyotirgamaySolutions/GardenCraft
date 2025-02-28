@@ -71,17 +71,13 @@ data.designData.elements.forEach(element => {
     .setDisplaySize(
       element.displayWidth * scaleX ,
       element.displayHeight * scaleY 
-      // element.displayWidth * scaleX * 1.5,
-      // element.displayHeight * scaleY * 1.5
     )
     .setDepth(element.depth);
 
   if(specialTrees.has(element.texture)) {
     newElement.setDisplaySize(
-      192 * scaleX,
-      192 * scaleY 
-      // 192 * scaleX * 1.5,
-      // 192 * scaleY * 1.5
+      264 * scaleX ,
+      264 * scaleY 
     );
   }
 });

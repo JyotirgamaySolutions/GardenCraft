@@ -16,7 +16,7 @@ export default class SocietyGardenDesign extends Phaser.Scene {
       "Bench", "Fountain", "Garden Lamp", "Compost area", "GreenBush", "RoundedBush", "Palm Tree", "Fern",
       "Plant", "S path", "Circle Table", "Rock garden", "Cypress", "Juniper"
     ];
-    this.specialTrees = new Set(['societytree1','societytree4','societytree5','societytree7','societytree11','societytree12','societytree15','societytree16','societytree17','societytree18','societytree28']);
+    this.specialTrees = new Set(['societytree1','societytree3','societytree4','societytree5','societytree7','societytree11','societytree12','societytree15','societytree16','societytree17','societytree18','societytree28']);
     // this.specialTrees = new Set(['societytree18','societytree9','societytree5', 'societytree7', 'societytree19','societytree1','societytree3','societytree28','societytree4','societytree11','societytree12','societytree10','societytree28']);
   } 
 

@@ -16,7 +16,7 @@ export default class TerraceGardenDesign extends Phaser.Scene {
       "Rose", "Kalanchoe", "Plum Aralia", "Dracena Plant", "Cabage", "Wind Chime", "Umbrella", "Fern",
       "Sofa", "Chilli", "Lemon", "Umbrella Tree", "Cypress", "Juniper"
     ];
-    this.specialTrees = new Set(['terracetree5','terracetree10','terracetree15','terracetree23','terracetree25']);
+    this.specialTrees = new Set(['terracetree5','terracetree10','terracetree11','terracetree15','terracetree23','terracetree25']);
     
   }
 

@@ -41,7 +41,7 @@ export default class ResultPage extends Phaser.Scene {
 
   create(data) {
     this.buttonTap = this.sound.add('buttonTap');
-    const specialTrees = new Set(['terracetree5','terracetree10','terracetree15','terracetree23','terracetree25']);
+    const specialTrees = new Set(['terracetree5','terracetree10','terracetree11','terracetree15','terracetree23','terracetree25']);
 
     // Create full-screen background
     const background = this.add.image(

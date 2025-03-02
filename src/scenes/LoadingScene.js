@@ -134,11 +134,11 @@ loadGameAssets() {
     this.load.image('societytree2', '/assets/SocietyAssets/images/pic2.png');
     this.load.image('societytree3', '/assets/SocietyAssets/images/pic3.png');
     this.load.image('societytree4', '/assets/SocietyAssets/images/pic4.png');
-    this.load.image('societytree5', '/assets/SocietyAssets/images/305.png');
+    this.load.image('societytree5', '/assets/SocietyAssets/images/998.png');
     this.load.image('societytree6', '/assets/SocietyAssets/images/pic6.png');
     this.load.image('societytree7', '/assets/SocietyAssets/images/pic29.png');
     this.load.image('societytree8', '/assets/SocietyAssets/images/pic8.png');
-    this.load.image('societytree9', '/assets/SocietyAssets/images/pic9.png');
+    this.load.image('societytree9', '/assets/PublicAssets/images/501.png');
     this.load.image('societytree10', '/assets/SocietyAssets/images/309.png');
     this.load.image('societytree11', '/assets/PublicAssets/images/405.png');
     this.load.image('societytree12', '/assets/SocietyAssets/images/pic42.png');
@@ -155,8 +155,8 @@ loadGameAssets() {
     this.load.image('societytree23', '/assets/SocietyAssets/images/pic23.png');
     this.load.image('societytree24', '/assets/SocietyAssets/images/pic24.png');
     this.load.image('societytree25', '/assets/SocietyAssets/images/pic25.png');
-    this.load.image('societytree26', '/assets/SocietyAssets/images/pic26.png');
-    this.load.image('societytree27', '/assets/SocietyAssets/images/pic27.png');
+    this.load.image('societytree26', '/assets/SocietyAssets/images/pic38.png');
+    this.load.image('societytree27', '/assets/SocietyAssets/images/997.png');
     this.load.image('societytree28', '/assets/SocietyAssets/images/306.png');
 
 
@@ -185,7 +185,7 @@ loadGameAssets() {
    this.load.image('publictree11', '/assets/PublicAssets/images/408.png');
    this.load.image('publictree12', '/assets/SocietyAssets/images/311.png');
    this.load.image('publictree13', '/assets/SocietyAssets/images/pic2.png'); //pic8, pic21, pic23
-   this.load.image('publictree14', '/assets/PublicAssets/images/14.png');
+   this.load.image('publictree14', '/assets/SocietyAssets/images/997.png');
    this.load.image('publictree15', '/assets/PublicAssets/images/405.png');
    this.load.image('publictree16', '/assets/PublicAssets/images/16.png');
    this.load.image('publictree17', '/assets/PublicAssets/images/17.png');

@@ -12,11 +12,11 @@ export default class PublicGardenDesign extends Phaser.Scene {
     this.currentDepth = 1; // Add this line
     this.treeNames = [
       "Bird-bath", "Honeycomb", "Gazebo", "See-Saw", "Path2", "Stones", "Cycle", "Stream",
-      "Bridge", "Fountain", "Flower Patch", "Slide", "Bush", "Ivy Plant", "Swing", "Bench",
-      "2-Table", "Bush2", "Kids", "Public", "Restroom", "Statue", "Dustbin", "GreenBush",
+      "Bridge", "Fountain", "Flower Patch", "Slide", "Bush", "Big Tree", "Swing", "Bench",
+      "L Design", "Bush2", "Kids", "Public", "Restroom", "Statue", "Dustbin", "GreenBush",
       "RoundedBush", "Potted plant", "Man", "Palm Tree", "Cypress", "Juniper"
     ];
-    this.specialTrees = new Set(['publictree1','publictree7','publictree19','publictree3','publictree4','publictree6','publictree8','publictree9','publictree10','publictree12','publictree14','publictree15','publictree16','publictree20','publictree21','publictree17','publictree22']);
+    this.specialTrees = new Set(['publictree14','publictree1','publictree7','publictree19','publictree3','publictree4','publictree6','publictree8','publictree9','publictree10','publictree12','publictree14','publictree15','publictree16','publictree20','publictree21','publictree17','publictree22']);
     // this.specialTrees = new Set(['publictree1', 'publictree3', 'publictree4', 'publictree7', 'publictree9','publictree10', 'publictree15', 'publictree16','publictree17', 'publictree18', 'publictree20', 'publictree22', 'publictree28']);
   } 
 
@@ -556,9 +556,9 @@ createActionButtons(element) {
   this.cleanupButtons(element); // Always clear existing buttons first
   
   // Create buttons regardless of element type or state
-  const buttonOffsetX = 125;
-  const buttonOffsetY = 125;
-  const buttonSize = 50;
+  const buttonOffsetX = 130;
+  const buttonOffsetY = 80;
+  const buttonSize = 40;
 
   const checkButton = this.add.image(element.x + buttonOffsetX, element.y - buttonOffsetY, 'publiccheckButton')
       .setOrigin(0.5)

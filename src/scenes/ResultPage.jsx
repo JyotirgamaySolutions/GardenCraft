@@ -69,15 +69,15 @@ export default class ResultPage extends Phaser.Scene {
 
       const newElement = this.add.image(newX, newY, element.texture)
         .setDisplaySize(
-          element.displayWidth * scaleX ,
-          element.displayHeight * scaleY 
+          element.displayWidth * scaleX * 1.1,
+          element.displayHeight * scaleY *1.1
         )
         .setDepth(element.depth);
 
       if(specialTrees.has(element.texture)) {
         newElement.setDisplaySize(
-          192 * scaleX ,
-          192 * scaleY 
+          192 * scaleX *1.1 ,
+          192 * scaleY *1.1
         );
       }
     });
@@ -86,6 +86,7 @@ export default class ResultPage extends Phaser.Scene {
     // Add UI elements
     const homeButton = this.add.image(50, 50, 'terracebackButton')
       .setInteractive()
+      .setDepth(9999)
       .setDisplaySize(40, 40)
       .on('pointerdown', () => {
         this.buttonTap.play();
@@ -98,6 +99,7 @@ export default class ResultPage extends Phaser.Scene {
       fontFamily: 'Arial',
       fontStyle: 'bold'
     }).setOrigin(0, 0.5)
+    .setDepth(9999)
     .setInteractive()
     .on('pointerdown', () => {
       this.buttonTap.play();
@@ -247,6 +249,6 @@ export default class ResultPage extends Phaser.Scene {
   
     feedbackContainer.add(submitBg);
     feedbackContainer.add(submitButton);
-    feedbackContainer.add(skipBg);
+    feedbackContainer.add(skipBg);    
     feedbackContainer.add(skipButton);
   }}

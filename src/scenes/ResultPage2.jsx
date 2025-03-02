@@ -41,7 +41,7 @@ export default class ResultPage2 extends Phaser.Scene {
 
   create(data) {
     this.buttonTap = this.sound.add('buttonTap');
-    const specialTrees = new Set(['societytree1','societytree3','societytree4','societytree5','societytree7','societytree11','societytree12','societytree15','societytree16','societytree17','societytree18','societytree28']);
+    const specialTrees = new Set(['societytree23','societytree27','societytree8','societytree1','societytree3','societytree4','societytree5','societytree7','societytree9','societytree11','societytree12','societytree15','societytree16','societytree17','societytree18','societytree26','societytree28']);
 
 // Create full-screen background
 const background = this.add.image(
@@ -69,15 +69,15 @@ data.designData.elements.forEach(element => {
 
   const newElement = this.add.image(newX, newY, element.texture)
     .setDisplaySize(
-      element.displayWidth * scaleX ,
-      element.displayHeight * scaleY 
+      element.displayWidth * scaleX * 1.1 ,
+      element.displayHeight * scaleY *1.1
     )
     .setDepth(element.depth);
 
   if(specialTrees.has(element.texture)) {
     newElement.setDisplaySize(
-      264 * scaleX ,
-      264 * scaleY 
+      264 * scaleX * 1.1,
+      264 * scaleY *1.1 
     );
   }
 });
@@ -85,6 +85,7 @@ data.designData.elements.forEach(element => {
     // Add UI elements
     const homeButton = this.add.image(50, 50, 'societybackButton')
       .setInteractive()
+      .setDepth(9999)
       .setDisplaySize(40, 40)
       .on('pointerdown', () => {
         this.buttonTap.play();
@@ -97,6 +98,7 @@ data.designData.elements.forEach(element => {
       fontFamily: 'Arial',
       fontStyle: 'bold'
     }).setOrigin(0, 0.5)
+    .setDepth(9999)
     .setInteractive()
     .on('pointerdown', () => {
       this.buttonTap.play();

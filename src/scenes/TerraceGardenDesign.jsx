@@ -564,7 +564,7 @@ createActionButtons(element) {
     this.cleanupButtons(element); // Always clear existing buttons first
     
     // Create buttons regardless of element type or state
-    const buttonOffsetX = 100;
+    const buttonOffsetX = 120;
     const buttonOffsetY = 100;
     const buttonSize = 40;
 
@@ -572,7 +572,7 @@ createActionButtons(element) {
         .setOrigin(0.5)
         .setInteractive()
         .setDisplaySize(buttonSize, buttonSize)
-        .setDepth(1000)
+        .setDepth(9999)
         .on('pointerdown', () => {
             this.buttonTap.play();
             this.handleCheckButtonClick(element);
@@ -582,7 +582,7 @@ createActionButtons(element) {
         .setOrigin(0.5)
         .setInteractive()
         .setDisplaySize(buttonSize, buttonSize)
-        .setDepth(1000)
+        .setDepth(9999)
         .on('pointerdown', () => {
             this.buttonTap.play();
             this.handleCancelButtonClick(element);

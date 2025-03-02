@@ -11,12 +11,12 @@ export default class SocietyGardenDesign extends Phaser.Scene {
     this.timeLeft = 300;
     this.currentDepth = 1; // Add this line
     this.treeNames = [
-      "Rippling Oasis", "Triostar", "Birdbath", "Seesaw", "Water body", "Flower", "L design", "Big Tree",
-      "PolygonDesign", "Flowers", "Swing", "Bush", "Boy", "Ivy Plant", "Gazebo", "Slide",
-      "Bench", "Fountain", "Garden Lamps", "Compost area", "GreenBush", "RoundedBush", "Palm Tree", "Fern",
-      "Plant", "S path", "Circle Table", "Rock garden", "Cypress", "Juniper"
+      "Rippling Oasis", "Triostar", "Birdbath", "Seesaw", "Water body", "Plant-2", "L design", "Big Tree",
+      "Kids", "Flowers", "Swing", "Bush", "Boy", "Small Tree", "Gazebo", "Slide",
+      "Bench", "Fountain", "Garden Lamp", "Compost area", "GreenBush", "RoundedBush", "Palm Tree", "Fern",
+      "Plant", "Public", "Tree", "Rock garden", "Cypress", "Juniper"
     ];
-    this.specialTrees = new Set(['societytree1','societytree3','societytree4','societytree5','societytree7','societytree11','societytree12','societytree15','societytree16','societytree17','societytree18','societytree28']);
+    this.specialTrees = new Set(['societytree23','societytree27','societytree8','societytree1','societytree3','societytree4','societytree5','societytree7','societytree9','societytree11','societytree12','societytree15','societytree16','societytree17','societytree18','societytree26','societytree28']);
     // this.specialTrees = new Set(['societytree18','societytree9','societytree5', 'societytree7', 'societytree19','societytree1','societytree3','societytree28','societytree4','societytree11','societytree12','societytree10','societytree28']);
   } 
 
@@ -554,9 +554,9 @@ createActionButtons(element) {
   this.cleanupButtons(element); // Always clear existing buttons first
   
   // Create buttons regardless of element type or state
-  const buttonOffsetX = 125;
-  const buttonOffsetY = 125;
-  const buttonSize = 50;
+  const buttonOffsetX = 130;
+  const buttonOffsetY = 80;
+  const buttonSize = 40;
 
   const checkButton = this.add.image(element.x + buttonOffsetX, element.y - buttonOffsetY, 'societycheckButton')
       .setOrigin(0.5)

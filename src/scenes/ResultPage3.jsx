@@ -39,7 +39,7 @@ export default class ResultPage3 extends Phaser.Scene {
 
   create(data) {
     this.buttonTap = this.sound.add('buttonTap');
-    const specialTrees = new Set(['publictree1','publictree7','publictree19','publictree3','publictree4','publictree6','publictree8','publictree9','publictree10','publictree12','publictree14','publictree15','publictree16','publictree20','publictree21','publictree17','publictree22']);
+    const specialTrees = new Set(['publictree14','publictree1','publictree7','publictree19','publictree3','publictree4','publictree6','publictree8','publictree9','publictree10','publictree12','publictree14','publictree15','publictree16','publictree20','publictree21','publictree17','publictree22']);
     // const specialTrees = new Set(['publictree1', 'publictree3', 'publictree4', 'publictree7', 'publictree9','publictree10', 'publictree15', 'publictree16','publictree17', 'publictree18', 'publictree20', 'publictree22', 'publictree28']);
 // Create full-screen background
 const background = this.add.image(
@@ -67,15 +67,15 @@ data.designData.elements.forEach(element => {
 
   const newElement = this.add.image(newX, newY, element.texture)
     .setDisplaySize(
-      element.displayWidth * scaleX ,
-      element.displayHeight * scaleY 
+      element.displayWidth * scaleX * 1.1,
+      element.displayHeight * scaleY * 1.1
     )
     .setDepth(element.depth);
 
   if(specialTrees.has(element.texture)) {
     newElement.setDisplaySize(
-      250 * scaleX ,
-      250 * scaleY 
+      250 * scaleX * 1.1 ,
+      250 * scaleY * 1.1
     );
   }
 });
@@ -84,6 +84,7 @@ data.designData.elements.forEach(element => {
     // Modified back button and home text
   const homeButton = this.add.image(50, 50, 'publicbackButton')
   .setInteractive()
+  .setDepth(9999)
   .setDisplaySize(40, 40)
   .on('pointerdown', () => {
     this.buttonTap.play();
@@ -96,6 +97,7 @@ const homeText = this.add.text(50 + 30, 50, 'Home', {
   fontFamily: 'Arial',
   fontStyle: 'bold',
 }).setOrigin(0, 0.5)
+.setDepth(9999)
   .setInteractive()
   .on('pointerdown', () => {
     this.buttonTap.play();

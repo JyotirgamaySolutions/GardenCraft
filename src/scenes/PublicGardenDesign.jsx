@@ -634,6 +634,12 @@ if (isSpecial) {
   if (element.isPlaced) {
     // Remove placed special tree completely
     element.destroy();
+    // Remove from elements array
+  const index = this.elements.indexOf(element);
+  if (index !== -1) {
+    this.elements.splice(index, 1);
+  }
+
     this.droppedElements.set(textureKey, 
       this.droppedElements.get(textureKey) - 1);
     this.availableCopies.set(textureKey, 
@@ -788,7 +794,7 @@ specialHandleCheckButtonClick(element) {
   this.checkSound.play();
 
   // Increase size by 30%
-  element.setDisplaySize(element.originalSize.width * 2.2, element.originalSize.height * 2.2);
+  element.setDisplaySize(element.originalSize.width * 2.1, element.originalSize.height * 2.1);
 
   // Create a copy in the original position with the original size
   const copy = this.add.image(element.holderOriginalX, element.holderOriginalY, element.texture.key)

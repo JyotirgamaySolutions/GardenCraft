@@ -642,6 +642,12 @@ handleCancelButtonClick(element) {
     if (element.isPlaced) {
       // Remove placed special tree completely
       element.destroy();
+      // Remove from elements array
+  const index = this.elements.indexOf(element);
+  if (index !== -1) {
+    this.elements.splice(index, 1);
+  }
+
       this.droppedElements.set(textureKey, 
         this.droppedElements.get(textureKey) - 1);
       this.availableCopies.set(textureKey, 

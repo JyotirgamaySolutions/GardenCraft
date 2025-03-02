@@ -194,11 +194,11 @@ loadGameAssets() {
    this.load.image('publictree20', '/assets/SocietyAssets/images/pic38.png');
    this.load.image('publictree21', '/assets/PublicAssets/images/restroom.png');
    this.load.image('publictree22', '/assets/PublicAssets/images/409.png');
-   this.load.image('publictree23', '/assets/PublicAssets/images/dustbin.png');
+   this.load.image('publictree23', '/assets/PublicAssets/images/23.png');
    this.load.image('publictree24', '/assets/SocietyAssets/images/pic21.png');
    this.load.image('publictree25', '/assets/SocietyAssets/images/pic22.png');
    this.load.image('publictree26', '/assets/PublicAssets/images/26.png');
-   this.load.image('publictree27', '/assets/PublicAssets/images/410.png');
+   this.load.image('publictree27', '/assets/PublicAssets/images/999.png');
    this.load.image('publictree28', '/assets/SocietyAssets/images/pic23.png');
 
     this.load.image('publicbackButton', '/assets/Utilities/home.png');
